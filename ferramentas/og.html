@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!-- Molde da imagem de prévia em redes sociais (assets/img/og.jpg, 1200 x 630).
+     Para refazer: sirva a pasta site_clinica (python -m http.server 8765), abra
+     http://localhost:8765/ferramentas/og.html numa janela de 1200 x 630 e salve a captura
+     como assets/img/og.jpg. Passo a passo no README. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <title>Molde da imagem de prévia (og.jpg)</title>
+  <style>
+    @font-face { font-family: "Cabin"; src: url("../assets/fonts/cabin-latin-wght.woff2") format("woff2"); font-weight: 400 700; }
+    @font-face { font-family: "Barlow Condensed"; src: url("../assets/fonts/barlow-condensed-latin-700.woff2") format("woff2"); font-weight: 700; }
+    html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+    body { position: relative; background: #F5EFE6; font-family: "Cabin", sans-serif; }
+    .curvas { position: absolute; inset: 0; background: #5C4D42; opacity: .11;
+      -webkit-mask: url("../assets/img/curvas.svg") center / cover no-repeat;
+      mask: url("../assets/img/curvas.svg") center / cover no-repeat; }
+    .brilho { position: absolute; left: 10px; top: 30px; width: 580px; height: 580px; border-radius: 50%;
+      background: radial-gradient(circle, rgb(240 194 122 / .30) 0%, rgb(240 194 122 / .14) 42%, rgb(240 194 122 / 0) 68%); }
+    .logo { position: absolute; left: 76px; top: 106px; width: 420px; height: 420px;
+      filter: drop-shadow(0 14px 22px rgb(43 33 27 / .16)); }
+    .texto { position: absolute; left: 530px; top: 84px; width: 630px; }
+    .sobre { margin: 0 0 16px; font-size: 20px; font-weight: 600; letter-spacing: .16em; color: #8A5A12; }
+    h1 { margin: 0 0 28px; font-family: "Barlow Condensed", sans-serif; font-weight: 700; font-size: 90px;
+      line-height: .93; color: #99401F; }
+    .lead { margin: 0 0 24px; font-size: 30px; line-height: 1.35; color: #5C4D42; }
+    .programa { margin: 0; font-size: 19px; font-weight: 600; color: #1D5C3A; }
+    .faixa { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; display: flex; }
+    .faixa span { flex: 1; }
+  </style>
+</head>
+<body>
+  <div class="curvas"></div>
+  <div class="brilho"></div>
+  <img class="logo" src="../assets/img/logo.svg" alt="">
+  <div class="texto">
+    <p class="sobre">NÚCLEO ACRE · UFAC</p>
+    <h1>Clínica<br>MultiverCidades<br>Acre</h1>
+    <p class="lead">Assistência técnica em conflitos fundiários urbanos e rurais.</p>
+    <p class="programa">Programa + Justiça Socioambiental: Amazônia Legal</p>
+  </div>
+  <div class="faixa"><span style="background:#99401F"></span><span style="background:#D08F33"></span><span style="background:#1D5C3A"></span><span style="background:#1F6F80"></span></div>
+</body>
+</html>

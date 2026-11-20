@@ -1,0 +1,7 @@
+# Arquivos que o sistema ou as ferramentas criam e não fazem parte do site
+Thumbs.db
+desktop.ini
+.DS_Store
+__pycache__/
+*.pyc
+*.tmp

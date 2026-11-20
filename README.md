@@ -17,7 +17,8 @@ assets/js/dados-ibge.js  números do Censo 2022 do Acre e dos 22 municípios (ge
 assets/fonts/          Cabin e Barlow Condensed, com as licenças (OFL)
 assets/img/            logo (logo.svg parada, logo-animado.svg no topo da página), fotos
                        da equipe, bastidores, parceiros, favicons e og.jpg (prévia em redes)
-ferramentas/           ibge_dados.py, que atualiza o dados-ibge.js
+ferramentas/           ibge_dados.py, que atualiza o dados-ibge.js, e og.html, molde da
+                       imagem de prévia em redes (og.jpg)
 ```
 
 Sem JavaScript a página continua completa: os perfis aparecem embaixo de cada foto, o
@@ -57,9 +58,36 @@ aparecem quando a página é servida por http.
    *Deploy from a branch*; em *Branch*, `main` e a pasta `/ (root)`. Salve.
 4. Em um ou dois minutos o endereço aparece no topo da mesma tela.
 
-**Depois de publicar:** no `index.html`, troque `content="assets/img/og.jpg"` pelo endereço
-completo da imagem (`https://NOME-DA-CONTA.github.io/NOME-DO-REPOSITORIO/assets/img/og.jpg`).
-Instagram, WhatsApp e LinkedIn só mostram a prévia com o endereço completo.
+**Endereço atual:** <https://dayanfa.github.io/multivercidadesacre/>, repositório
+`dayanfa/multivercidadesacre`. O `og:image` do `index.html` já aponta para
+`https://dayanfa.github.io/multivercidadesacre/assets/img/og.jpg`; se o site mudar de endereço
+(por exemplo, para a conta da clínica), troque esse endereço também. Instagram, WhatsApp e
+LinkedIn só mostram a prévia com o endereço completo.
+
+### Atualizar o site publicado
+
+Esta pasta já é o repositório (ligado a `origin`, ramo `main`). Depois de editar:
+
+```bash
+cd site_clinica
+git status                      # confira o que mudou
+git add .
+git commit -m "Descreva a mudança"
+git push
+```
+
+O GitHub Pages publica em um ou dois minutos. Se a página parecer antiga, recarregue com
+Ctrl+F5. Antes do `git push`, passe pela lista "O que nunca publicar" abaixo.
+
+**Para mudar a frase da prévia:** edite o texto em `ferramentas/og.html`, sirva a pasta como em
+*Ver no computador* e salve uma captura de 1200 × 630 px de
+<http://localhost:8000/ferramentas/og.html> como `assets/img/og.jpg`. No Edge, pelo terminal:
+
+```bash
+msedge --headless=new --hide-scrollbars --window-size=1200,630 --screenshot=og.png http://localhost:8000/ferramentas/og.html
+```
+
+Depois converta o `og.png` para JPG (qualidade 85 a 90) e substitua `assets/img/og.jpg`.
 
 ## Como editar
 
@@ -75,6 +103,21 @@ Cada bloco do `index.html` tem um comentário explicando o que mudar.
 | Contatos | Seção `#contato` e o bloco `application/ld+json` no `<head>`. |
 | Rótulos do painel do Censo | `<div class="ibge">` na seção `#casos`. Os números vêm do `dados-ibge.js` (veja abaixo). |
 | Data de atualização | Rodapé. |
+
+### Padrão dos perfis da equipe
+
+Os perfis falam de atuação, no presente, sem tarefas simples (ofícios, atas). Cada nível segue
+a mesma frase de abertura, e todos terminam com "Atua na elaboração do relatório de cada caso."
+
+| Nível | Cargo no cartão | Abertura do texto |
+|---|---|---|
+| Supervisão | Supervisor(a) da área X | "Supervisiona a análise X do processo: ..." e "Conduz as reuniões diárias da área." |
+| Pós-doutorado e residência | Residente da área X | "Atua na análise X do processo e ..." |
+| Especialização e iniciação científica | Especializando(a) da área X | "Atua na análise X do processo, auxiliando o/a residente da área X ..." |
+
+As etiquetas são três, e a primeira é "Análise X" (ou "Supervisão X"). A comissão aparece como
+"Comissão de Soluções Fundiárias do Poder Judiciário do Acre (COMSF)" na primeira menção e como
+"Comissão de Soluções Fundiárias (COMSF)" ou "COMSF" depois. Os conflitos são "urbanos e rurais".
 
 ## Mapa dos casos com os números do Censo
 
